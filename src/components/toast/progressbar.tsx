@@ -1,7 +1,7 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import styles from "./progressbar.css?inline";
 
-interface ToastProgressBarProps {
+export interface ToastProgressBarProps {
   progress: number;
 }
 

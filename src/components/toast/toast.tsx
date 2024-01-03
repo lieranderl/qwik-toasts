@@ -13,7 +13,7 @@ import { ToastBodyComponent } from "./toast-body";
 export type ToastType = "success" | "error" | "warning" | "info";
 import styles from "./toast.css?inline";
 
-type ToastId = {
+export type ToastId = {
   id: string;
 };
 

@@ -53,6 +53,10 @@ During development, Qwik-Toasts uses [Vite's development server](https://vitejs.
 
 Start development:
 ```bash
+bun install
+```
+
+```bash
 bun start
 ```
 

@@ -1,6 +1,7 @@
-import { component$, $, useContext, useSignal } from "@builder.io/qwik";
+import { component$, $, useContext } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { ToastManagerContext, ToastStack } from "qwik-toasts";
+
 
 
 export const showToasts = $((toastManager: any) => {
