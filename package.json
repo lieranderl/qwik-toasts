@@ -1,0 +1,71 @@
+{
+  "name": "qwik-toasts",
+  "version": "0.0.4",
+  "description": "Create a reusable Qwik Toasts library",
+  "homepage": "https://github.com/lieranderl/qwik-toast#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lieranderl/qwik-toast"
+  },
+  "main": "./lib/index.qwik.mjs",
+  "qwik": "./lib/index.qwik.mjs",
+  "types": "./lib-types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.qwik.mjs",
+      "require": "./lib/index.qwik.cjs",
+      "types": "./lib-types/index.d.ts"
+    }
+  },
+  "files": [
+    "lib",
+    "lib-types"
+  ],
+  "engines": {
+    "node": ">=15.0.0"
+  },
+  "private": false,
+  "scripts": {
+    "build": "qwik build",
+    "build.lib": "vite build --mode lib",
+    "build.types": "tsc --emitDeclarationOnly",
+    "dev": "vite --mode ssr",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "release": "np",
+    "start": "vite --open --mode ssr",
+    "test": "echo \"No test specified\" && exit 0",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "1.3.2",
+    "@types/bun": "^1.0.0",
+    "@types/eslint": "^8.44.8",
+    "@types/node": "^20.10.3",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.55.0",
+    "eslint-plugin-qwik": "latest",
+    "daisyui": "latest",
+    "np": "^8.0.4",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.3.2",
+    "undici": "^5.26.0",
+    "vite": "^5.0.6",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "keywords": [
+    "qwik",
+    "toast"
+  ],
+  "dependencies": {
+    "@qwikest/icons": "^0.0.13",
+    "uuidv4": "^6.2.13"
+  }
+}
