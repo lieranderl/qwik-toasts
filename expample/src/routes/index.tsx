@@ -1,4 +1,4 @@
-import { component$, $, useContext } from "@builder.io/qwik";
+import { component$, $, useContext, useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { ToastManagerContext, ToastStack } from "qwik-toasts";
 
@@ -34,6 +34,42 @@ export const ShowButton = component$(({ label }: ShowBottomProps) => {
   );
 })
 
+export const AddRemoveProg = component$(() => {
+  const toastManager = useContext(ToastManagerContext);
+  const addToasts = $(() => {
+    toastManager.addToast({
+      message: "Test Message",
+      type: "success",
+    });
+    toastManager.addToast({
+      message: "Error Message 1",
+      type: "error",
+    });
+    toastManager.addToast({
+      message: "Error Message 2",
+      type: "error",
+    });
+    toastManager.addToast({
+      message: "Info Message",
+      type: "info",
+      autocloseTime: 10000,
+    });
+    toastManager.addToast({
+      message: "Warning Message",
+      type: "warning",
+      autocloseTime: 8000,
+    });
+  })
+
+
+  return (
+    <div class="flex flex-col gap-2">
+      <button class="btn w-48" onClick$={addToasts}>Add Toasts</button>
+      <button class="btn w-48 btn-error" onClick$={() => { toastManager.removeAllToastsByType("error") }}>Delete Only Errors</button>
+      <button class="btn w-48 btn-error" onClick$={() => { toastManager.removeAllToasts() }}>Delete All Toasts</button>
+    </div>
+  )
+})
 
 
 export default component$(() => {
@@ -57,7 +93,7 @@ export default component$(() => {
           <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cyberpunk" value="cyberpunk" /></li>
           <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine" /></li>
           <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua" /></li>
-          
+
         </ul>
       </div>
       <div class="flex gap-2">
@@ -95,6 +131,11 @@ export default component$(() => {
           <ShowButton label="Show Bottom End" />
         </ToastStack>
       </div>
+
+      <h1 class="mt-20">Delete toasts using script:</h1>
+      <ToastStack >
+        <AddRemoveProg />
+      </ToastStack>
     </div>
   );
 });
