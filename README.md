@@ -67,7 +67,7 @@ bun run build
 ## Example 
 Check out the example located in the /example directory to see Qwik-Toasts in action. 
 
-[![Qwik-Toasts Example Video](https://img.youtube.com/vi/Cn4_2oJHh-c/0.jpg)](https://www.youtube.com/watch?v=Cn4_2oJHh-c)
+[![Qwik-Toasts Example Video](https://img.youtube.com/vi/dj83Sr_KtJ4/0.jpg)](https://www.youtube.com/watch?v=dj83Sr_KtJ4)
 
 
 Add Tailwind and Daisyui:
