@@ -2,10 +2,10 @@
   "name": "qwik-toasts",
   "version": "0.0.4",
   "description": "Create a reusable Qwik Toasts library",
-  "homepage": "https://github.com/lieranderl/qwik-toast#readme",
+  "homepage": "https://github.com/lieranderl/qwik-toasts#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lieranderl/qwik-toast"
+    "url": "https://github.com/lieranderl/qwik-toasts"
   },
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
