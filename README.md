@@ -2,6 +2,12 @@
 
 Qwik-Toasts is a versatile toast notification library built on top of [Qwik](https://qwik.builder.io/). It provides a simple and efficient way to display informative messages to users in your web applications.
 
+Qwik Integration: Leveraging the capabilities of Qwik, our library seamlessly integrates with your web application, ensuring smooth and efficient performance.
+
+Tailwind CSS Styles: The project utilizes Tailwind CSS for styling, offering a customizable and modern look for your toast notifications. Easily adapt the styles to match your application's design.
+
+[DaisyUI](https://daisyui.com/): Embrace the aesthetics of DaisyUI themes to give your toast notifications a stylish and modern appearance.
+
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
 - [Qwik on GitHub](https://github.com/BuilderIO/qwik)
