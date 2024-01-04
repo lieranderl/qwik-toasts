@@ -1,13 +1,28 @@
 import { component$, $, useContext } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { ToastManagerContext, ToastStack } from "qwik-toasts";
+import { HiAcademicCapSolid } from "@qwikest/icons/heroicons";
 
 
 
 export const showToasts = $((toastManager: any) => {
   toastManager.addToast({
+    message: "Test Default Message",
+    type: "default",
+  });
+  toastManager.addToast({
     message: "Test Message",
     type: "success",
+  });
+  toastManager.addToast({
+    message: "Test Custom Icon",
+    type: "success",
+    customIcon: <HiAcademicCapSolid class="h-6 w-6" aria-hidden="true" />
+  });
+  toastManager.addToast({
+    message: "Test No Icon",
+    type: "success",
+    customIcon: <></>
   });
   toastManager.addToast({
     message: "Error Message",
@@ -43,6 +58,11 @@ export const AddRemoveProg = component$(() => {
       type: "success",
     });
     toastManager.addToast({
+      message: "Test Custom Icon",
+      type: "success",
+      customIcon: <HiAcademicCapSolid class="h-6 w-6" aria-hidden="true" />
+    });
+    toastManager.addToast({
       message: "Error Message 1",
       type: "error",
     });
@@ -73,7 +93,7 @@ export const AddRemoveProg = component$(() => {
 })
 
 
-export default component$(() => {
+export const Example = component$(() => {
   return (
 
     <div class="flex flex-col gap-8 items-center mt-16">
@@ -140,6 +160,10 @@ export default component$(() => {
     </div>
   );
 });
+
+
+export default component$(() => {
+  return (<Example />);});
 
 export const head: DocumentHead = {
   title: "Welcome to Qwik",

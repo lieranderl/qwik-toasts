@@ -1,4 +1,4 @@
-import type { QRL } from "@builder.io/qwik";
+import type { JSXNode, QRL } from "@builder.io/qwik";
 import {
   Slot,
   component$,
@@ -28,8 +28,8 @@ export type ToastBody = {
   message: string;
   type: ToastType;
   autocloseTime?: number;
-};
-
+  customIcon?: JSXNode;
+}
 export const ToastStack = component$(
   ({ horizontally, vertically }: ToastStackProps) => {
     const toastsStore = useStore({ toasts: [] as ToastProps[] });

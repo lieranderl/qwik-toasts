@@ -9,23 +9,24 @@ export type ToastBodyComponentProps = {
 } & ToastBody;
 
 export const ToastBodyComponent = component$(
-  ({ message, type, closeToast }: ToastBodyComponentProps) => {
+  ({ message, type, closeToast, customIcon }: ToastBodyComponentProps) => {
     const classAlert = useSignal("flex items-center justify-between alert");
 
     useTask$(() => {
       if (type === "info") classAlert.value = classAlert.value + " alert-info";
-      if (type === "success")
+      else if (type === "success")
         classAlert.value = classAlert.value + " alert-success";
-      if (type === "warning")
+      else if (type === "warning")
         classAlert.value = classAlert.value + " alert-warning";
-      if (type === "error")
+      else if (type === "error")
         classAlert.value = classAlert.value + " alert-error";
     });
 
     return (
       <div id="toast" class={classAlert} role="alert">
         <div class="flex items-center">
-          <div class="me-2 h-6 w-6">{getIconByType(type)}</div>
+          {customIcon}
+          {!customIcon&&<div class="me-2 h-6 w-6">{getIconByType(type)}</div>}
 
           <div class="mx-2 overflow-auto whitespace-normal text-sm">
             {message}

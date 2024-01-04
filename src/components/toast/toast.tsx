@@ -10,7 +10,7 @@ import type { ToastBody, ToastStackProps } from "./toast-stack";
 import { ToastManagerContext } from "./toast-stack";
 import { ToastProgressBar } from "./progressbar";
 import { ToastBodyComponent } from "./toast-body";
-export type ToastType = "success" | "error" | "warning" | "info";
+export type ToastType = "success" | "error" | "warning" | "info" | "default";
 import styles from "./toast.css?inline";
 
 export type ToastId = {
@@ -20,10 +20,10 @@ export type ToastId = {
 export type ToastProps = ToastBody & ToastId & ToastStackProps;
 
 export const Toast = component$(
-  ({ id, message, type, autocloseTime, horizontally }: ToastProps) => {
+  ({ id, message, type, autocloseTime, horizontally, customIcon }: ToastProps) => {
     useStyles$(styles);
     const toastsFunc = useContext(ToastManagerContext);
-    const baseClass = " drop-shadow-lg w-90 sm:w-120";
+    const baseClass = " drop-shadow-lg min-w-[300px] max-w-[430px]";
     const animClassIn = useSignal(baseClass);
     const animClassOut = useSignal(baseClass);
     const animClass = useSignal(animClassIn.value);
@@ -64,6 +64,7 @@ export const Toast = component$(
           type={type}
           autocloseTime={autocloseTime}
           closeToast={closeToast}
+          customIcon={customIcon}
         />
         {autocloseTime && <ToastProgressBar progress={autocloseTime} />}
       </div>

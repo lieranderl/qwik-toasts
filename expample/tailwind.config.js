@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default  {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}','./node_modules/qwik-toasts/**/*.{mjs,cjs}'],
   daisyui: {
     themes: ["light",
