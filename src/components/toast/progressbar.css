@@ -10,4 +10,3 @@
 .progress-slide {
   animation: progress_slide var(--bar-duration) linear;
 }
-

@@ -22,7 +22,9 @@ Tailwind CSS Styles: The project utilizes Tailwind CSS for styling, offering a c
 ```bash
 npm install qwik-toasts
 ```
+
 or if you use bun:
+
 ```bash
 bun install qwik-toasts
 ```
@@ -46,12 +48,12 @@ Inside your Qwik-Toasts project, you'll find the following directories and files
 
 - `example/`: Contains an example showcasing the usage of Qwik-Toasts.
 
-
 ## Development
 
 During development, Qwik-Toasts uses [Vite's development server](https://vitejs.dev/) with server-side rendering (SSR) capabilities provided by Qwik and [Bun](https://bun.sh/). Bun is an all-in-one JavaScript runtime & toolkit designed for speed, complete with a bundler, test runner, and Node.js-compatible package manager.
 
 Start development:
+
 ```bash
 bun install
 ```
@@ -68,13 +70,14 @@ For production, the Qwik-Toasts library should generate the production build in 
 bun run build
 ```
 
-## Example 
-Check out the example located in the /example directory to see Qwik-Toasts in action. 
+## Example
+
+Check out the example located in the /example directory to see Qwik-Toasts in action.
 
 [![Qwik-Toasts Example Video](https://img.youtube.com/vi/dj83Sr_KtJ4/0.jpg)](https://www.youtube.com/watch?v=dj83Sr_KtJ4)
 
-
 Add daisyUI to your tailwind.config.js files, add tailwind for qwik-toasts:
+
 ```
 
 module.exports = {
@@ -86,11 +89,15 @@ module.exports = {
   plugins: [require("daisyui")],
 }
 ```
+
 Install dependencies:
+
 ```
 bun install
 ```
+
 Run:
+
 ```bash
 bun start
 ```

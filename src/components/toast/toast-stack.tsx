@@ -7,13 +7,16 @@ import {
   useStore,
   $,
   useSignal,
+  useStyles$,
 } from "@builder.io/qwik";
-import type { ToastProps, ToastType } from "./toast";
+import type { ToastId, ToastType } from "./toast";
 import { Toast } from "./toast";
 import { v4 as uuidv4 } from "uuid";
+import styles from "./toast.css?inline";
 
 export const ToastManagerContext = createContextId<{
   addToast: QRL<(toast: ToastBody) => string>;
+  modifyToast: QRL<(id: string, newToast: ToastBody) => void>;
   removeToast: QRL<(id: string) => void>;
   removeAllToasts: QRL<() => void>;
   removeAllToastsByType: QRL<(type: ToastType) => void>;
@@ -29,15 +32,24 @@ export type ToastBody = {
   type: ToastType;
   autocloseTime?: number;
   customIcon?: JSXNode;
-}
+  messageClass?: string;
+};
 export const ToastStack = component$(
   ({ horizontally, vertically }: ToastStackProps) => {
-    const toastsStore = useStore({ toasts: [] as ToastProps[] });
+    useStyles$(styles);
+    const toastsStore = useStore({ toasts: [] as (ToastBody & ToastId)[] });
     const toastManager = useStore({
       addToast: $((toast: ToastBody) => {
         const ui = uuidv4();
         toastsStore.toasts.push({ ...toast, id: ui });
         return ui;
+      }),
+      modifyToast: $((id: string, newToast: ToastBody) => {
+        toastsStore.toasts = toastsStore.toasts.map((toast) => {
+          if (toast.id === id) {
+            return { ...newToast, id: id };
+          } else return toast;
+        });
       }),
       removeToast: $((id: string) => {
         toastsStore.toasts = toastsStore.toasts.filter(
@@ -54,7 +66,7 @@ export const ToastStack = component$(
       }),
     });
 
-    const stackClass = useSignal(["toast", "z-[1000]"]);
+    const stackClass = useSignal(["mtoast", "z-[1000]"]);
     if (horizontally) stackClass.value.push(horizontally);
     if (vertically) stackClass.value.push(vertically);
     else stackClass.value.push("toast-bottom");

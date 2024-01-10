@@ -1,3 +1,29 @@
+.mtoast {
+  @apply fixed flex min-w-fit flex-col gap-2 whitespace-nowrap p-4;
+}
+
+:where(.mtoast) {
+  @apply bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0;
+}
+.mtoast:where(.toast-start) {
+  @apply end-auto start-0 translate-x-0;
+}
+.mtoast:where(.toast-center) {
+  @apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
+}
+.mtoast:where(.toast-end) {
+  @apply end-0 start-auto translate-x-0;
+}
+.mtoast:where(.toast-bottom) {
+  @apply bottom-0 top-auto translate-y-0;
+}
+.mtoast:where(.toast-middle) {
+  @apply bottom-auto top-1/2 -translate-y-1/2;
+}
+.mtoast:where(.toast-top) {
+  @apply bottom-auto top-0 translate-y-0;
+}
+
 @keyframes slide_in_right {
   0% {
     transform: translate3d(110%, 0, 0);
@@ -94,8 +120,4 @@
 
 .progress-slide {
   animation: progress_slide var(--bar-duration) linear;
-}
-
-.alert {
-  @apply rounded-md;
 }

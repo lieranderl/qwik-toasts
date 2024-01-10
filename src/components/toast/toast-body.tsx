@@ -1,5 +1,5 @@
 import type { PropFunction, QRL } from "@builder.io/qwik";
-import { component$, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import type { ToastBody } from "./toast-stack";
 import { getIconByType } from "./utils";
 import { HiXMarkSolid } from "@qwikest/icons/heroicons";
@@ -9,28 +9,33 @@ export type ToastBodyComponentProps = {
 } & ToastBody;
 
 export const ToastBodyComponent = component$(
-  ({ message, type, closeToast, customIcon }: ToastBodyComponentProps) => {
-    const classAlert = useSignal("flex items-center justify-between alert");
+  ({
+    message,
+    type,
+    closeToast,
+    customIcon,
+    messageClass,
+  }: ToastBodyComponentProps) => {
+    const messageDefaultClass = "mx-2 overflow-auto whitespace-normal text-sm ";
+    const defaultClass = "flex items-center justify-between alert ";
+    const getClassByType = (type: string) => {
+      if (type === "info") return defaultClass + "alert-info";
+      else if (type === "success") return defaultClass + "alert-success";
+      else if (type === "warning") return defaultClass + "alert-warning";
+      else if (type === "error") return defaultClass + "alert-error";
+      else if (type === "default") return defaultClass;
+    };
 
-    useTask$(() => {
-      if (type === "info") classAlert.value = classAlert.value + " alert-info";
-      else if (type === "success")
-        classAlert.value = classAlert.value + " alert-success";
-      else if (type === "warning")
-        classAlert.value = classAlert.value + " alert-warning";
-      else if (type === "error")
-        classAlert.value = classAlert.value + " alert-error";
-    });
+    const getMessageClass = () => {
+      return messageDefaultClass + messageClass;
+    };
 
     return (
-      <div id="toast" class={classAlert} role="alert">
+      <div id="toast" class={getClassByType(type)} role="alert">
         <div class="flex items-center">
           {customIcon}
-          {!customIcon&&<div class="me-2 h-6 w-6">{getIconByType(type)}</div>}
-
-          <div class="mx-2 overflow-auto whitespace-normal text-sm">
-            {message}
-          </div>
+          {!customIcon && <div class="me-2 h-6 w-6">{getIconByType(type)}</div>}
+          {message && <div class={getMessageClass()}>{message}</div>}
         </div>
 
         <button
