@@ -5,7 +5,7 @@ import {
   ToastStack,
 } from "./components/toast/toast-stack";
 import "./global.css";
-import { HiBellAlertSolid } from "@qwikest/icons/heroicons";
+import { HiBellAlertSolid, HiHandThumbUpSolid } from "@qwikest/icons/heroicons";
 
 export const showToasts = $((toastManager: any) => {
   toastManager.addToast({
@@ -73,10 +73,9 @@ export const AddRemoveProg = component$(() => {
     fakePromise().then((res) => {
       toastManager.modifyToast(promiseId, {
         message: res!.toString(),
-        type: "success",
+        type: "default",
         messageClass: "text-neutral font-bold",
-        customIcon: undefined,
-        autocloseTime: 5555,
+        customIcon: <HiHandThumbUpSolid class="text-2xl" />,
       });
     });
     toastManager.addToast({
@@ -302,7 +301,6 @@ export default () => {
   return (
     <>
       <head>
-        <meta charSet="utf-8" />
         <title>Qwik Blank App</title>
       </head>
       <body>

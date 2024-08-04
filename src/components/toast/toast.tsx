@@ -22,7 +22,7 @@ export const Toast = component$(
     messageClass,
   }: ToastProps) => {
     const toastsFunc = useContext(ToastManagerContext);
-    const baseClass = "drop-shadow-lg min-w-[300px] max-w-[430px]";
+    const baseClass = "relative drop-shadow-lg min-w-[300px] max-w-[430px]";
     const IsCloseSig = useSignal(false);
     const getAnimClass = (v: boolean) => {
       const animClassMap = {

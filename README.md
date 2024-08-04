@@ -34,8 +34,6 @@ bun install qwik-toasts
 Inside your Qwik-Toasts project, you'll find the following directories and files:
 
 ```
-├── example/
-│   └── ...
 └── src/
     ├── components/toast
     │              └── ...
@@ -45,8 +43,6 @@ Inside your Qwik-Toasts project, you'll find the following directories and files
 - `src/components/toast`: This directory is a location for Qwik-Toasts components.
 
 - `index.ts`: The entry point of your Qwik-Toasts library.
-
-- `example/`: Contains an example showcasing the usage of Qwik-Toasts.
 
 ## Development
 

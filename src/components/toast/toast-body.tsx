@@ -1,11 +1,11 @@
-import type { PropFunction, QRL } from "@builder.io/qwik";
+import type { QRL } from "@builder.io/qwik";
 import { component$ } from "@builder.io/qwik";
 import type { ToastBody } from "./toast-stack";
 import { getIconByType } from "./utils";
 import { HiXMarkSolid } from "@qwikest/icons/heroicons";
 
 export type ToastBodyComponentProps = {
-  closeToast: QRL<PropFunction<() => void>>;
+  closeToast: QRL<() => void>;
 } & ToastBody;
 
 export const ToastBodyComponent = component$(

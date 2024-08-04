@@ -1,4 +1,4 @@
-import type { JSXNode, QRL } from "@builder.io/qwik";
+import type { JSXNode, JSXOutput, QRL } from "@builder.io/qwik";
 import {
   Slot,
   component$,
@@ -31,7 +31,7 @@ export type ToastBody = {
   message: string;
   type: ToastType;
   autocloseTime?: number;
-  customIcon?: JSXNode;
+  customIcon?: JSXNode<unknown> | JSXOutput;
   messageClass?: string;
 };
 export const ToastStack = component$(
