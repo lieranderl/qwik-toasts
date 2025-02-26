@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 .mtoast {
   @apply fixed flex min-w-fit flex-col gap-2 whitespace-nowrap p-4;
 }

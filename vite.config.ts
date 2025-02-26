@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import pkg from "./package.json";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import tsconfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
 
 const { dependencies = {}, peerDependencies = {} } = pkg as any;
 const makeRegex = (dep) => new RegExp(`^${dep}(/.*)?$`);
@@ -25,6 +26,6 @@ export default defineConfig(() => {
         ],
       },
     },
-    plugins: [qwikVite(), tsconfigPaths()],
+    plugins: [qwikVite(), tsconfigPaths(), tailwindcss()],
   };
 });
