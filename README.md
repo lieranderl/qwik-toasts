@@ -72,23 +72,10 @@ Check out the example located in the /example directory to see Qwik-Toasts in ac
 
 [![Qwik-Toasts Example Video](https://img.youtube.com/vi/dj83Sr_KtJ4/0.jpg)](https://www.youtube.com/watch?v=dj83Sr_KtJ4)
 
-Add daisyUI to your tailwind.config.js files, add tailwind for qwik-toasts:
-
-```
-
-module.exports = {
-  content: [
-    //...
-    "./node_modules/qwik-toasts/**/*.{cjs,mjs}"
-  ],
-  //...
-  plugins: [require("daisyui")],
-}
-```
 
 Install dependencies:
 
-```
+```bash
 bun install
 ```
 

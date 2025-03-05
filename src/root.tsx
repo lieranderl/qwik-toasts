@@ -48,7 +48,7 @@ export type ShowBottomProps = {
 export const ShowButton = component$(({ label }: ShowBottomProps) => {
   const toastManager = useContext(ToastManagerContext);
   return (
-    <button class="btn w-48" onClick$={() => showToasts(toastManager)}>
+    <button type="button" class="btn w-48" onClick$={() => showToasts(toastManager)}>
       {label}
     </button>
   );
@@ -68,7 +68,7 @@ export const AddRemoveProg = component$(() => {
     const promiseId = await toastManager.addToast({
       message: "Pending Promise",
       type: "warning",
-      customIcon: <span class="loading loading-sm"></span>,
+      customIcon: <span class="loading loading-sm" />,
     });
     fakePromise().then((res) => {
       toastManager.modifyToast(promiseId, {
@@ -109,10 +109,11 @@ export const AddRemoveProg = component$(() => {
 
   return (
     <div class="flex flex-col gap-2">
-      <button class="btn w-48" onClick$={addToasts}>
+      <button type="button" class="btn w-48" onClick$={addToasts}>
         Add Toasts
       </button>
       <button
+        type="button"
         class="btn btn-error w-48"
         onClick$={() => {
           toastManager.removeAllToastsByType("error");
@@ -121,6 +122,7 @@ export const AddRemoveProg = component$(() => {
         Delete Only Errors
       </button>
       <button
+        type="button"
         class="btn btn-error w-48"
         onClick$={() => {
           toastManager.removeAllToasts();
@@ -177,78 +179,6 @@ export const Example = component$(() => {
               class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
               aria-label="Dark"
               value="dark"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Coffee"
-              value="coffee"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Business"
-              value="business"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Lofi"
-              value="lofi"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Autumn"
-              value="autumn"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Retro"
-              value="retro"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Cyberpunk"
-              value="cyberpunk"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Valentine"
-              value="valentine"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
-              aria-label="Aqua"
-              value="aqua"
             />
           </li>
         </ul>
