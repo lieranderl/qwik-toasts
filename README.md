@@ -2,11 +2,11 @@
 
 Qwik-Toasts is a versatile toast notification library built on top of [Qwik](https://qwik.builder.io/). It provides a simple and efficient way to display informative messages to users in your web applications.
 
-Qwik Integration: Leveraging the capabilities of Qwik, our library seamlessly integrates with your web application, ensuring smooth and efficient performance.
+**Qwik Integration**: Leveraging the capabilities of Qwik, our library seamlessly integrates with your web application, ensuring smooth and efficient performance.
 
-Tailwind CSS Styles: The project utilizes Tailwind CSS for styling, offering a customizable and modern look for your toast notifications. Easily adapt the styles to match your application's design.
+**Tailwind CSS Styles**: The project utilizes Tailwind CSS for styling, offering a customizable and modern look for your toast notifications. Easily adapt the styles to match your application's design.
 
-[DaisyUI](https://daisyui.com/): Embrace the aesthetics of DaisyUI themes to give your toast notifications a stylish and modern appearance.
+[**DaisyUI**](https://daisyui.com/): Embrace the aesthetics of DaisyUI themes to give your toast notifications a stylish and modern appearance.
 
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
@@ -23,64 +23,62 @@ Tailwind CSS Styles: The project utilizes Tailwind CSS for styling, offering a c
 npm install qwik-toasts
 ```
 
-or if you use bun:
+or if you're using Bun:
 
 ```bash
 bun install qwik-toasts
 ```
 
-## Project Structure
+---
 
-Inside your Qwik-Toasts project, you'll find the following directories and files:
+## Project Structure
 
 ```
 └── src/
-    ├── components/toast
-    │              └── ...
+    ├── components/toast/
     └── index.ts
 ```
 
-- `src/components/toast`: This directory is a location for Qwik-Toasts components.
+- `src/components/toast/`: Contains the core Qwik-Toasts components.
+- `index.ts`: Entry point of the Qwik-Toasts library.
 
-- `index.ts`: The entry point of your Qwik-Toasts library.
+---
 
 ## Development
 
-During development, Qwik-Toasts uses [Vite's development server](https://vitejs.dev/) with server-side rendering (SSR) capabilities provided by Qwik and [Bun](https://bun.sh/). Bun is an all-in-one JavaScript runtime & toolkit designed for speed, complete with a bundler, test runner, and Node.js-compatible package manager.
+Qwik-Toasts uses [Vite](https://vitejs.dev/) with server-side rendering provided by [Qwik](https://qwik.builder.io/) and runs on [Bun](https://bun.sh/).
 
 Start development:
 
 ```bash
 bun install
-```
-
-```bash
 bun start
 ```
 
-## Production
+---
 
-For production, the Qwik-Toasts library should generate the production build in the `./lib` directory, along with TypeScript type definitions in `./lib-types`.
+## Production Build
+
+To build the library for production and generate type definitions:
 
 ```bash
 bun run build
 ```
 
+Output will be in:
+
+- `./lib` – Compiled output
+- `./lib-types` – TypeScript definitions
+
+---
+
 ## Example
 
-Check out the example located in the /example directory to see Qwik-Toasts in action.
-
-[![Qwik-Toasts Example Video](https://img.youtube.com/vi/dj83Sr_KtJ4/0.jpg)](https://www.youtube.com/watch?v=dj83Sr_KtJ4)
-
-
-Install dependencies:
+Example usage is embedded in `root.tsx`.\
+To run the example:
 
 ```bash
-bun install
-```
-
-Run:
-
-```bash
+bun update
 bun start
 ```
+
